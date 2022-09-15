@@ -1,12 +1,13 @@
 import Body from './body'
 import Navbar from './navbar'
 import MobileBackground from './mobileBackground'
+import EditUserPage from './editUserPage'
 
 export default function App() {
-    const app = <>
+        return ( <>
                 <Navbar />
                 <Body />
                 <MobileBackground />
-                </>
-    return app;
+                <EditUserPage />
+                </>)
 }

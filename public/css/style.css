@@ -176,7 +176,7 @@ body {
   margin-right: 10px;
 }
 
-.post .usuario, .post .topo img, .post .fundo img, .post ion-icon, .post strong {
+.post .usuario, .post .topo img, .post .fundo img, .post ion-icon, .post strong , ion-icon[name="pencil-outline"]{
   cursor: pointer;
 }
 
@@ -310,6 +310,40 @@ body {
   display: none !important;
 }
 
+
+.edit-user-background{
+  position: fixed;
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit-user-background__center-div{
+  display: absolute;
+  width: 50%;
+  background-color: white;
+  height: 50%;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 935px) {
   .sidebar {
     display: none;
@@ -391,3 +425,4 @@ body {
     top: 4px;
   }
 }
+

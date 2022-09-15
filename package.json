@@ -8,7 +8,8 @@
     "react-scripts": "^4.0.3"
   },
   "scripts": {
-    "start": "FAST_REFRESH=false react-scripts start",
+    "start": "react-scripts start",
+    "startlx": "FAST_REFRESH=false react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
