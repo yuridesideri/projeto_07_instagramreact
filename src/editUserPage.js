@@ -30,23 +30,25 @@ const handleInput = e => {
 
 
 export default function EditUserPage ({changePage, ...rest}){
-    const [state, setState] = useState('default');
-
-    return (
+    const [imageState, setImageState] = useState(false);
+    const [outAnimation, setOutAnimation] = useState(false);
+    return (    
         <div className="edit-user-background">
-            <div className="edit-user-background__center-div">
+            <div className={`edit-user-background__center-div ${outAnimation? 'animateOut' : 'animateIn'}`}>
                 <div className="user-editor-header">
                     <h1>Edit User</h1>
                 </div>
                 <div className="profile-old-box">
-                    <img width='64px' height='64px' onClick={() => {setState('notDefault')}} alt="" src={user.image}/>
-                    {state === 'default'? [] : imageBox()}
+                    <div>
+                        <img width='64px' height='64px' onClick={() => {setImageState((prvState => !prvState))}} alt="" src={user.image}/>
+                    </div>
+                    {imageState? imageBox() : null}
                     <div className="texto">
                         <input id='username' type="text" onChange={handleInput} placeholder={user.username}/>
                         <input id='name' type="text" onChange={handleInput} placeholder={user.name}/>
                     </div>
                 </div>
-                <button onClick={e => {changePage("mainPage")}} onChange={handleInput} className='edit-user-button'>Aplicar</button>
+                <button onClick={e => {setOutAnimation(!outAnimation) ; setTimeout(() => {changePage("mainPage")}, 400)}} onChange={handleInput} className='edit-user-button'>Aplicar</button>
             </div>
         </div>
     )

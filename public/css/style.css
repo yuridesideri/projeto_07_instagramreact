@@ -1,3 +1,28 @@
+@keyframes editUserPageIn{
+  from{
+    transform: translate(-50%);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+
+
+
+@keyframes editUserPageOut{
+  from {
+    transform: translate(0);
+    opacity: 100%;
+  }
+  to{
+    transform: translate(-60%);
+    opacity: 0%;
+  }
+}
+
+
+
+
 * {
   box-sizing: border-box;
 }
@@ -400,9 +425,16 @@ body {
 }
 
 .liked-post-color{
-  color: red !important;
+  color: red;
 }
-
+.animateIn{
+  animation-name: editUserPageIn;
+  animation-duration: 0.5s;
+}
+.animateOut{
+  animation-name: editUserPageOut;
+  animation-duration: 0.5s;
+}
 
 
 
