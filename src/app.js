@@ -1,13 +1,16 @@
+import React, {useState} from 'react'
 import Body from './body'
 import Navbar from './navbar'
 import MobileBackground from './mobileBackground'
 import EditUserPage from './editUserPage'
 
-export default function App() {
+export default function App (){
+        const [state, setState] = useState('mainPage');
+
         return ( <>
                 <Navbar />
-                <Body />
+                <Body changePage={setState}/>
                 <MobileBackground />
-                <EditUserPage />
+                {state === 'mainPage'? <></> : <EditUserPage changePage={setState}/>}
                 </>)
 }

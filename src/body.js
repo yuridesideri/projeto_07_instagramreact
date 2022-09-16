@@ -5,14 +5,14 @@ import Stories from './stories'
 
 
 
-export default function Body () {
+export default function Body ({changePage, ...rest}) {
     const body = 
     <div className="corpo">
         <div className="esquerda">
             <Stories />
             <Posts />
         </div>
-        <Sidebar />
+        <Sidebar changePage={changePage}/>
     </div>
     
 

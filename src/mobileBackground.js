@@ -1,5 +1,5 @@
 export default function MobileBackground() {
-    const mobileBackground = <div class="fundo-mobile">
+    const mobileBackground = <div className="fundo-mobile">
     <ion-icon name="home"></ion-icon>
     <ion-icon name="search-outline"></ion-icon>
     <ion-icon name="add-circle-outline"></ion-icon>

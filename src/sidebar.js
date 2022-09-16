@@ -2,10 +2,10 @@ import User from './user'
 import Suggestions from './suggestions'
 
 
-export default function Sidebar() {
+export default function Sidebar({changePage, ...rest}) {
     const sidebar = 
     <div className="sidebar">
-        <User />
+        <User changePage={changePage} />
         <Suggestions />
         <div className="links">
         Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma

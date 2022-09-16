@@ -1,5 +1,5 @@
 export default function Navbar () {
-    const navbar = <div class="navbar">
+    const navbar = <div className="navbar">
     <div className="container">
       <div className="logo">
         <ion-icon name="logo-instagram"></ion-icon>

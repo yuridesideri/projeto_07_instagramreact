@@ -1,14 +1,20 @@
-export default function User () 
+import {userInfoFromPage} from './editUserPage.js'
+
+export default function User({changePage, ...rest}) 
 {
+    const user = userInfoFromPage();
+
     return (
         <div className="usuario">
-            <img alt="" src="assets/img/catanacomics.svg" />
+            <img alt="" src={user.image} />
             <div className="texto">
-              <strong>catanacomics </strong>
+              <strong>{user.username}</strong>
 
-              <p className="text__nome">Catana <ion-icon name="pencil-outline"></ion-icon></p>
+              <p className="text__nome">{user.name} <ion-icon onClick={() => changePage('editUserPage')} name="pencil-outline"></ion-icon></p>
             </div>
         </div>
     )
 }
+
+
 
