@@ -28,6 +28,7 @@ const posts = [
 ];
 
 function Post({ props, setAllPostsState, allPosts, ...rest }) {
+  const [likeAnimation, setLikeAnimation] = useState(false);
   return (
     <div key={props.profileName} className="post">
       <div className="topo">
@@ -42,12 +43,14 @@ function Post({ props, setAllPostsState, allPosts, ...rest }) {
 
       <div
         onDoubleClick={() =>{
-          handleLike(props.id, setAllPostsState, allPosts, 'photo');}
+          handleLike(props.id, setAllPostsState, allPosts, 'photo');
+          setLikeAnimation(true);
+          setTimeout(()=>setLikeAnimation(false), 800)}
         }
         className="conteudo"
       >
         <img alt="" src={props.postPicture} />
-        <ion-icon class={props.runLikeAnimation ?"md hydrated run-like-animation" : "md hydrated hidden"} name="heart"></ion-icon>
+        <ion-icon class={likeAnimation? "md hydrated run-like-animation" : "md hydrated hidden"} name="heart"></ion-icon>
       </div>
 
       <div className="fundo">
