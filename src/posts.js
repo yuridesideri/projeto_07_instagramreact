@@ -11,6 +11,7 @@ const posts = [
     likeNumber: "99.159",
     liked: false,
     saved: false,
+    runLikeAnimation: false,
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const posts = [
     likeNumber: "101.523",
     liked: false,
     saved: false,
+    runLikeAnimation: false,
   },
 ];
 
@@ -39,12 +41,13 @@ function Post({ props, setAllPostsState, allPosts, ...rest }) {
       </div>
 
       <div
-        onDoubleClick={() =>
-          handleLike(props.id, setAllPostsState, allPosts, 'photo')
+        onDoubleClick={() =>{
+          handleLike(props.id, setAllPostsState, allPosts, 'photo');}
         }
         className="conteudo"
       >
         <img alt="" src={props.postPicture} />
+        <ion-icon class={props.runLikeAnimation ?"md hydrated run-like-animation" : "md hydrated hidden"} name="heart"></ion-icon>
       </div>
 
       <div className="fundo">
@@ -63,7 +66,7 @@ function Post({ props, setAllPostsState, allPosts, ...rest }) {
           <div>
             <ion-icon
               id="bookmark"
-              name="bookmark-outline"
+              name={props.saved? "bookmark": "bookmark-outline"}
               onClick={() =>
           handleLike(props.id, setAllPostsState, allPosts, 'banner')
         }
@@ -100,10 +103,12 @@ export default function Posts() {
 }
 
 
-function handleLike(id, setAllPostsState, allPosts, location) {
+function handleLike(id, setAllPostsState, allPosts, location,) {
   const postsRecreated = allPosts.map((el) => {
     if (id === el.id && location === 'photo') {
       el.liked = true;
+      el.runLikeAnimation = true;
+      setTimeout(() => {el.runLikeAnimation = false;}, 800);
     }
     else if (id === el.id && location === 'heart') {
       el.liked = !el.liked;
@@ -114,5 +119,6 @@ function handleLike(id, setAllPostsState, allPosts, location) {
     }
     return el
   });
+  setTimeout(() => setAllPostsState(postsRecreated), 800);
   setAllPostsState(postsRecreated);
 }

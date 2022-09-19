@@ -20,7 +20,17 @@
   }
 }
 
+@keyframes runLikeAnimation{
+  0%{font-size: 220px;
+    transform: scale(100%);
+    transform: translate(-50%,-50%)}
 
+  60%{
+    font-size: 270px;
+  }  
+  100%{font-size: 270px;
+    transform: translate(-50%,-50%);}
+}
 
 
 * {
@@ -209,6 +219,10 @@ body {
   width: 100%;
 }
 
+.conteudo{
+  position:relative;
+}
+
 .post .fundo .acoes {
   display: flex;
   justify-content: space-between;
@@ -331,10 +345,21 @@ body {
   cursor: pointer;
 }
 
-.logo-mobile, .instagram-mobile {
+.logo-mobile, .instagram-mobile, .hidden {
   display: none !important;
 }
 
+.run-like-animation{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  font-size: 0px;
+  animation-name: runLikeAnimation;
+  color: rgba(255,255,255,0.85);
+  animation-duration: 0.8s;
+
+}
 
 .edit-user-background{
   position: fixed;
